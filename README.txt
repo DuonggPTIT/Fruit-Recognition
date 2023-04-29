@@ -1,4 +1,4 @@
-Ứng dụng có thể chạy trên Pycharm cho cả Window và Macbook
+Ứng dụng chạy trên web cho cả Window và Macbook, phần huấn luyện chỉ có thể chạy trên linux
 I. Để chạy
     1. Chọn system interpreter: python 3.8
     2. Run svr_moddel.py
@@ -10,7 +10,7 @@ II. Để huấn luyện mô hình dự đoán hình ảnh
     2. Gõ lệnh pip install các thư viện trong setup.txt
     3. pip install --upgrade tensorflowjs==3.9.0
     4. Run train.py
-    5. Trong terminal của Pycharm, gõ lệnh tensorflowjs_wizard
+    5. Trong terminal, gõ lệnh tensorflow_wizard
     6. Gõ directory: models/best.hdf5
     7. Chọn input model: Keras (HDFS)
     8. Chọn output model: Layer Model
