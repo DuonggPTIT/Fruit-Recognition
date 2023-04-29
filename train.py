@@ -2,8 +2,9 @@
 import cv2
 from keras.applications.mobilenet import  MobileNet
 from keras.layers import GlobalAveragePooling2D, Dense, Dropout
-from keras.models import Model
-
+from bigdl.nano.tf.keras import Model #bigdl
+import tensorflow as tf 
+import tensorflow_addons as tfa
 from keras.preprocessing.image import ImageDataGenerator
 import keras
 from keras.callbacks import ModelCheckpoint
@@ -61,9 +62,13 @@ print(classes)
 classes = list(classes.keys())
 
 # 4. Train model
-n_epochs = 30
+n_epochs = 1000
 batch_size = 64
-model.compile(optimizer='sgd', loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='sgd', loss='categorical_crossentropy', metrics=[
+                    'accuracy',                                
+                      tfa.metrics.F1Score(num_classes=40, 
+                      average='micro',
+                      threshold=0.5)])
 
 checkpoint = ModelCheckpoint('models/best.hdf5', monitor='val_loss', save_best_only = True, mode='auto')
 callback_list = [checkpoint]
